@@ -1,0 +1,21 @@
+<h2>Gestión de Citas</h2>
+
+<!-- Formulario para agregar nueva cita -->
+<form (ngSubmit)="agregarCita()">
+  <label>
+    Frase:
+    <input type="text" [(ngModel)]="nuevaCita.frase" required minlength="5">
+  </label>
+  <label>
+    Autor:
+    <input type="text" [(ngModel)]="nuevaCita.autor" required minlength="2">
+  </label>
+  <button type="submit">Agregar Cita</button>
+</form>
+
+<!-- Lista de citas existentes -->
+<div *ngFor="let cita of citas">
+  <app-cita [cita]="cita"></app-cita>
+  <button (click)="eliminarCita(cita)">Eliminar</button>
+</div>
+
